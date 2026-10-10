@@ -302,6 +302,26 @@
   .side-block .sub{ font-size:11px; color: var(--ink-soft); margin-top:6px; }
 
   /* ---------- Footer ---------- */
+  /* ---------- Expanding background section ---------- */
+  /* Sits outside the two-column layout so it spans the full width of the simulator. */
+  details.learn{ margin-top: 18px; padding: 0; }
+  details.learn summary{
+    list-style:none; cursor:pointer; padding: 16px 18px; display:flex; align-items:center; gap:12px;
+    font: 700 22px var(--display); letter-spacing:.01em; border-radius: var(--radius);
+  }
+  details.learn summary::-webkit-details-marker{ display:none; }
+  details.learn summary::before{
+    content:""; width:10px; height:10px; border-right: 2.5px solid var(--crimson); border-bottom: 2.5px solid var(--crimson);
+    transform: rotate(-45deg); transition: transform .2s ease; flex-shrink:0; margin-left:2px;
+  }
+  details.learn[open] summary::before{ transform: rotate(45deg); }
+  details.learn summary:hover{ color: var(--crimson); }
+  details.learn summary:focus-visible{ outline: 3px solid var(--crimson); outline-offset: 2px; }
+  /* text fills the full panel width (no character cap) */
+  .learn-body{ padding: 0 18px 20px 42px; font-size: 14px; line-height: 1.6; }
+  .learn-body p{ margin: 0 0 12px; }
+  @media (prefers-reduced-motion: reduce){ details.learn summary::before{ transition:none; } }
+
   footer.note{ margin-top: 24px; font-size:12.5px; color: var(--ink-soft); text-align:left; line-height:1.7; }
   footer.note .footer-testing{ font-weight:700; color: var(--crimson); }
   footer.note a{ color: inherit; text-decoration: underline; text-decoration-color: var(--line); }
@@ -616,6 +636,16 @@
       </div>
     </div>
   </div>
+
+  <details class="panel learn">
+    <summary>Background</summary>
+    <!-- Placeholder text: drop lang="la" when the real (English) content goes in. -->
+    <div class="learn-body" lang="la">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </details>
 
   <footer class="note">
 		<div>Developed by the <a href="https://uwaterloo.ca/institute-for-quantum-computing/outreach" target="_blank" rel="noopener noreferrer">Scientific Outreach Team</a> at the Institute for Quantum Computing, University of Waterloo. Built to accompany the <a href="https://uwaterloo.ca/institute-for-quantum-computing/outreach/quantum-educators/teacher-resources" target="_blank" rel="noopener">Uncertainty Principle and Quantum Detectives</a> lesson plans. Based on the double-slit quantum eraser of <a href="https://doi.org/10.1103/PhysRevA.65.033818" target="_blank" rel="noopener">Walborn, Terra Cunha, P&aacute;dua &amp; Monken</a> (<i>Phys. Rev. A</i> 65, 033818, 2002), proposed by Scully, Englert &amp; Walther (<i>Nature</i> 351, 111, 1991), and the <a href="https://www.scientificamerican.com/article/a-do-it-yourself-quantum-eraser" target="_blank" rel="noopener">do-it-yourself version by Hillmer &amp; Kwiat</a> (<i>Scientific American</i>, May 2007). Related tools include <a href="https://www.st-andrews.ac.uk/physics/quvis/simulations_html5/sims/QuantumEraser/QuantumEraser.html" target="_blank" rel="noopener">QuVis Quantum Eraser</a> (University of St Andrews); <a href="https://www.physics.ucla.edu/~chester/eraserPost/" target="_blank" rel="noopener">UCLA Physics quantum eraser demo</a>; <a href="https://quantumflytrap.com/virtual-lab" target="_blank" rel="noopener">Quantum Flytrap Virtual Lab</a>; <a href="https://phet.colorado.edu/en/simulation/quantum-wave-interference" target="_blank" rel="noopener">PhET Quantum Wave Interference</a> (University of Colorado Boulder). Perception brightness scale from <a href="https://en.wikipedia.org/wiki/Stevens%27s_power_law">S.&nbsp;S. Stevens' power law</a>. The development of the user interface relied on artificial intelligence tools. Please report any issues to iqc-outreach@uwaterloo.ca.</div>
